@@ -1,1 +1,0 @@
-Put publication PDFs in this folder and update the links in index.html.
