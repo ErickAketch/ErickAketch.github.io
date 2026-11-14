@@ -9,423 +9,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Keyframes --- */
-    @keyframes spinSlow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes spinReverse {
-      0% { transform: rotate(360deg); }
-      100% { transform: rotate(0deg); }
-    }
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes avatarGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(200, 30, 50, 0.32), 0 12px 28px rgba(200, 30, 50, 0.14); }
-      50% { box-shadow: 0 0 0 10px rgba(200, 30, 50, 0), 0 14px 32px rgba(230, 108, 31, 0.22); }
-    }
-    @keyframes cardSlideIn {
-      from { opacity: 0; transform: translateY(14px) scale(0.985); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes progressFill {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-
-    /* --- Split Hero Section --- */
-    .hero-wrapper {
+    .hero {
       position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid #f3f4f6;
+      padding: 4.5rem 6% 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
     .geo-bg {
       position: absolute;
-      top: -60px;
-      right: -110px;
-      width: 680px;
-      height: 680px;
+      top: -20px;
+      right: -80px;
+      width: 580px;
+      height: 580px;
+      opacity: 0.22;
       pointer-events: none;
       z-index: -1;
-      opacity: 0.25;
     }
-    .ring-cw { transform-origin: 250px 210px; animation: spinSlow 70s linear infinite; }
-    .ring-ccw { transform-origin: 250px 210px; animation: spinReverse 90s linear infinite; }
-
-    .hero-grid {
-      max-width: 1220px;
-      margin: 0 auto;
-      padding: 4.25rem 6% 4.75rem;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 3.25rem;
-      align-items: center;
-    }
-
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      display: inline-block;
       padding: 0.45rem 1.1rem;
       border: 1px solid var(--border-light);
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-muted);
       background: #fff;
-      margin-bottom: 1.35rem;
+      margin-bottom: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--primary);
-    }
-
-    .hero-left h1 {
-      font-size: clamp(2.15rem, 4vw, 3.35rem);
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.14;
-      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
     }
-
     .gradient-name {
-      background: linear-gradient(270deg, #c81e32, #e66c1f, #b91c1c, #e66c1f);
-      background-size: 250% 250%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientFlow 7s ease infinite;
     }
-
     .tagline {
-      font-size: 1.12rem;
+      font-size: 1.25rem;
       color: var(--text-muted);
-      margin-bottom: 1.85rem;
-      max-width: 560px;
+      margin-bottom: 2.25rem;
+      max-width: 720px;
     }
-
-    .profile-row {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
+    .profile-wrapper { margin-bottom: 2.25rem; }
     .profile-pic {
-      width: 155px;
-      height: 155px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3.5px solid var(--primary);
-      animation: avatarGlow 4s ease-in-out infinite;
-      flex-shrink: 0;
+      border: 4px solid var(--primary);
+      box-shadow: 0 12px 28px rgba(200, 30, 50, 0.15);
     }
-
-    .quick-metrics {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .quick-metrics div {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .quick-metrics i {
-      color: var(--primary);
-      width: 16px;
-      text-align: center;
-    }
-
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
-
+    .cta-group { display: flex; flex-wrap: wrap; gap: 1rem; }
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      padding: 0.82rem 1.65rem;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
       border-radius: 999px;
       font-weight: 600;
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       text-decoration: none;
       transition: all 0.2s ease;
     }
-
     .btn-primary {
       background-color: var(--primary);
       color: #fff;
       box-shadow: 0 4px 14px rgba(200, 30, 50, 0.25);
     }
     .btn-primary:hover { background-color: #a81829; transform: translateY(-2px); }
-
     .btn-outline {
       background-color: #fff;
       color: var(--text-dark);
       border: 1.5px solid var(--border-light);
     }
     .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-
-    /* --- Animated CV Showcase Card (Right Column) --- */
-    .cv-stage {
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-light);
-      border-radius: 18px;
-      box-shadow: 0 18px 42px rgba(17, 24, 39, 0.07);
-      overflow: hidden;
-    }
-
-    .cv-stage-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.95rem 1.35rem;
-      background: #f9fafb;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .cv-stage-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .cv-tabs {
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .cv-tab-btn {
-      border: 1px solid var(--border-light);
-      background: #fff;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.3rem 0.65rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .cv-tab-btn.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-
-    .cv-progress-bar {
-      height: 3px;
-      background: #f3f4f6;
-      width: 100%;
-    }
-
-    .cv-progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      width: 0%;
-    }
-
-    .cv-slide {
-      display: none;
-      padding: 1.65rem 1.5rem;
-      min-height: 295px;
-      animation: cardSlideIn 0.45s ease forwards;
-    }
-
-    .cv-slide.active {
-      display: block;
-    }
-
-    .slide-kicker {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .cv-slide h3 {
-      font-size: 1.22rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 0.65rem;
-    }
-
-    .cv-slide p {
-      font-size: 0.93rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .grade-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-
-    .grade-pill {
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.28rem 0.65rem;
-      border-radius: 6px;
-      background: #fef2f2;
-      color: var(--primary);
-      border: 1px solid #fecaca;
-    }
-
-    .mini-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .mini-list li {
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      padding-left: 1rem;
-      border-left: 2.5px solid var(--primary);
-    }
-
-    .mini-list span {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    /* --- Organized Sections Below Fold --- */
-    .home-section {
-      max-width: 1220px;
+    section.content-block {
+      padding: 3.5rem 6%;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 4rem 6%;
-      border-bottom: 1px solid #f3f4f6;
+      border-top: 1px solid #f3f4f6;
     }
-
-    .section-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .section-header-row h2 {
-      font-size: 1.85rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .about-grid p {
-      font-size: 1.03rem;
+    section h2 { font-size: 1.85rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .about-text {
+      font-size: 1.06rem;
       color: var(--text-muted);
-      margin-bottom: 1.1rem;
-    }
-
-    .interest-box {
-      background: #f9fafb;
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
-      padding: 1.5rem;
-    }
-
-    .interest-box h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.85rem;
-      color: var(--text-dark);
-    }
-
-    .overview-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.4rem;
-    }
-
-    .overview-card {
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
-      padding: 1.5rem;
-      background: #fff;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .overview-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--primary);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
-    }
-
-    .overview-card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #fef2f2;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .overview-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .overview-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .overview-card-link {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid, .about-grid {
-        grid-template-columns: 1fr;
-      }
-      .profile-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      max-width: 860px;
+      margin-bottom: 1.15rem;
     }
   </style>
 </head>
@@ -449,216 +123,54 @@
     </nav>
   </header>
 
-  <div class="hero-wrapper">
-    <!-- Animated Concentric Line-Art Background -->
-    <svg class="geo-bg" viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="ring-cw">
-        <circle cx="250" cy="210" r="35" stroke="#c81e32" stroke-width="1"/>
-        <circle cx="250" cy="210" r="65" stroke="#c81e32" stroke-width="1"/>
-        <circle cx="250" cy="210" r="95" stroke="#d94628" stroke-width="1"/>
-        <circle cx="250" cy="210" r="125" stroke="#d94628" stroke-width="1"/>
-        <circle cx="250" cy="210" r="155" stroke="#e66c1f" stroke-width="1"/>
-        <polygon points="250,20 440,210 250,400 60,210" stroke="#c81e32" stroke-width="0.9" fill="none"/>
-        <polygon points="250,45 415,210 250,375 85,210" stroke="#e66c1f" stroke-width="0.9" fill="none"/>
-      </g>
-      <g class="ring-ccw">
-        <circle cx="250" cy="210" r="185" stroke="#c81e32" stroke-width="0.8" stroke-dasharray="5 5"/>
-        <polygon points="250,5 455,210 250,415 45,210" stroke="#d94628" stroke-width="0.8" stroke-dasharray="6 4" fill="none"/>
-      </g>
+  <main id="home" class="hero">
+    <svg class="geo-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="250" cy="180" r="30" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="250" cy="180" r="55" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="250" cy="180" r="80" stroke="#d94628" stroke-width="1"/>
+      <circle cx="250" cy="180" r="105" stroke="#d94628" stroke-width="1"/>
+      <circle cx="250" cy="180" r="130" stroke="#e66c1f" stroke-width="1"/>
+      <circle cx="250" cy="180" r="155" stroke="#e66c1f" stroke-width="1"/>
+      <polygon points="90,30 380,30 380,320 90,320" stroke="#c81e32" stroke-width="0.8" fill="none"/>
+      <polygon points="110,50 360,50 360,300 110,300" stroke="#d94628" stroke-width="0.8" fill="none"/>
+      <polygon points="130,70 340,70 340,280 130,280" stroke="#e66c1f" stroke-width="0.8" fill="none"/>
     </svg>
 
-    <div class="hero-grid">
-      <!-- Left Column: Identity & Actions -->
-      <div class="hero-left">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          MSc Mathematical Sciences (AIMS-Ghana) · Tutorial Fellow
-        </div>
+    <div class="badge">MSc Mathematical Sciences (AIMS-Ghana) · Tutorial Fellow &amp; Researcher</div>
 
-        <h1>Hi, I'm <span class="gradient-name">ERICK OMONDI AKETCH</span></h1>
-        <p class="tagline">
-          Mathematical Sciences · Machine Learning Theory · Scientific Computing with Python
-        </p>
+    <h1>Hi, I'm <span class="gradient-name">ERICK OMONDI AKETCH</span></h1>
+    <p class="tagline">Mathematical Sciences · Machine Learning Theory · Scientific Computing with Python</p>
 
-        <div class="profile-row">
-          <img src="profile.jpg" alt="Erick Omondi Aketch" class="profile-pic">
-          <div class="quick-metrics">
-            <div><i class="fa-solid fa-graduation-cap"></i> MSc Mathematical Sciences (Grade A)</div>
-            <div><i class="fa-solid fa-university"></i> Tutorial Fellow, JOOUST</div>
-            <div><i class="fa-solid fa-book-open"></i> 2 SSRN Research Publications (2026)</div>
-            <div><i class="fa-solid fa-location-dot"></i> Kenya</div>
-          </div>
-        </div>
-
-        <div class="cta-group">
-          <a href="projects.html" class="btn btn-primary">
-            <i class="fa-solid fa-folder-open"></i> View My Work
-          </a>
-          <a href="Erick_Aketch_Resume (1).pdf" class="btn btn-outline" download>
-            <i class="fa-solid fa-file-pdf"></i> Download CV
-          </a>
-        </div>
-      </div>
-
-      <!-- Right Column: Animated CV Storyboard -->
-      <div class="cv-stage" aria-label="Interactive Animated CV Summary">
-        <div class="cv-stage-header">
-          <div class="cv-stage-title">
-            <i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> Interactive CV Overview
-          </div>
-          <div class="cv-tabs">
-            <button class="cv-tab-btn active" onclick="selectSlide(0)">01 · MSc</button>
-            <button class="cv-tab-btn" onclick="selectSlide(1)">02 · Research</button>
-            <button class="cv-tab-btn" onclick="selectSlide(2)">03 · ML</button>
-            <button class="cv-tab-btn" onclick="selectSlide(3)">04 · Roles</button>
-          </div>
-        </div>
-
-        <div class="cv-progress-bar">
-          <div class="cv-progress-fill" id="cvProgress"></div>
-        </div>
-
-        <!-- Slide 1: Education -->
-        <div class="cv-slide active">
-          <div class="slide-kicker">01 / 04 · Academic Foundation</div>
-          <h3>MSc in Mathematical Sciences (AIMS-Ghana / UCC)</h3>
-          <p>Graduated with Overall Grade <strong>A (Very Good Pass)</strong> and Research Project Grade <strong>A</strong> (2026), building on a B.Ed. in Mathematics &amp; Economics (Upper Division) and a WorldQuant Data Science Certificate.</p>
-          <div class="grade-pills">
-            <span class="grade-pill">Probability Theory (A+)</span>
-            <span class="grade-pill">Scientific Computing Python (A+)</span>
-            <span class="grade-pill">Real Analysis (A+)</span>
-            <span class="grade-pill">Linear Algebra (A+)</span>
-            <span class="grade-pill">Calculus (A+)</span>
-            <span class="grade-pill">Mathematical Proofs (A)</span>
-          </div>
-        </div>
-
-        <!-- Slide 2: Mathematical Research -->
-        <div class="cv-slide">
-          <div class="slide-kicker">02 / 04 · Pure &amp; Applied Mathematics</div>
-          <h3>Continued Fractions &amp; Best Rational Approximations</h3>
-          <p>Formulated research questions, developed rigorous proofs, and defended an independent thesis before an external examination panel, resulting in two 2026 SSRN publications:</p>
-          <ul class="mini-list">
-            <li>
-              Continued Fractions and Some Applications
-              <span>SSRN Electronic Journal · DOI: 10.2139/ssrn.7013641</span>
-            </li>
-            <li>
-              Continued Fractions: Theory, Convergents and Best Rational Approximations
-              <span>SSRN Electronic Journal · DOI: 10.2139/ssrn.7151399</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Slide 3: Machine Learning & Python -->
-        <div class="cv-slide">
-          <div class="slide-kicker">03 / 04 · Scientific Computing &amp; ML</div>
-          <h3>End-to-End Predictive Modelling &amp; Deployment</h3>
-          <p>Developing Python machine learning pipelines (NumPy, Pandas, scikit-learn, Streamlit) with focus on generalisation, uncertainty, and error analysis:</p>
-          <ul class="mini-list">
-            <li>
-              Cancer Predictor App (2026)
-              <span>Supervised binary classification, serialization &amp; interactive Streamlit deployment</span>
-            </li>
-            <li>
-              Biomedical &amp; Actuarial Modelling (2025–2026)
-              <span>Heart Disease Classification &amp; Insurance Charges Linear Regression pipelines</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Slide 4: Teaching & Leadership -->
-        <div class="cv-slide">
-          <div class="slide-kicker">04 / 04 · University Teaching &amp; Leadership</div>
-          <h3>Academic Instruction &amp; Quantitative Systems</h3>
-          <p>Combining university-level mathematical instruction with departmental leadership and automated data systems:</p>
-          <ul class="mini-list">
-            <li>
-              Tutorial Fellow · Jaramogi Oginga Odinga University (Jan 2026–Present)
-              <span>Supporting undergraduate students in technically demanding mathematical coursework</span>
-            </li>
-            <li>
-              Head of Department (Mathematics) · TSC (Jan 2020–Present)
-              <span>Engineered an automated school assessment, grading, ranking, and reporting system</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="profile-wrapper">
+      <img src="profile.jpg" alt="Erick Omondi Aketch" class="profile-pic">
     </div>
-  </div>
 
-  <!-- ABOUT & RESEARCH INTERESTS -->
-  <section class="home-section">
-    <div class="section-header-row">
-      <h2>Research Profile</h2>
+    <div class="cta-group">
+      <a href="projects.html" class="btn btn-primary">
+        <i class="fa-solid fa-folder-open"></i> View My Work
+      </a>
+      <a href="Erick_Aketch_Resume.pdf" class="btn btn-outline" download>
+        <i class="fa-solid fa-file-pdf"></i> Download CV
+      </a>
     </div>
-    <div class="about-grid">
-      <div>
-        <p>
-          I am an MSc Mathematical Sciences researcher and Tutorial Fellow at Jaramogi Oginga Odinga University of Science and Technology, equipped with a rigorous foundation in real analysis, probability theory, linear algebra, mathematical proofs, statistics, and scientific computing with Python.
-        </p>
-        <p>
-          My research objective is to develop a rigorous mathematical understanding of learning algorithms—particularly their optimisation and training dynamics, high-dimensional behaviour, generalisation, uncertainty, and architectural mechanisms.
-        </p>
-      </div>
+  </main>
 
-      <div class="interest-box">
-        <h3><i class="fa-solid fa-compass" style="color: var(--primary); margin-right: 0.4rem;"></i> Research Interests</h3>
-        <div class="tag-list">
-          <span class="tag">Mathematical Foundations of ML</span>
-          <span class="tag">Learning Dynamics &amp; Optimisation</span>
-          <span class="tag">Probability &amp; Stochastic Methods</span>
-          <span class="tag">Analysis of Neural Networks</span>
-          <span class="tag">Statistical Learning Theory</span>
-          <span class="tag">Dynamical Systems</span>
-          <span class="tag">Generative Modelling</span>
-          <span class="tag">Scientific Computing</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ORGANIZED PORTFOLIO DIRECTORY -->
-  <section class="home-section" style="border-bottom: none;">
-    <div class="section-header-row">
-      <h2>Explore Portfolio</h2>
-    </div>
-    <div class="overview-cards">
-      <a href="education.html" class="overview-card">
-        <div>
-          <div class="overview-card-icon"><i class="fa-solid fa-user-graduate"></i></div>
-          <h3>Education &amp; Experience</h3>
-          <p>AIMS-Ghana MSc, WorldQuant Data Science Certificate, Kibabii University B.Ed., and JOOUST Fellowship.</p>
-        </div>
-        <span class="overview-card-link">View Full CV <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-
-      <a href="publications.html" class="overview-card">
-        <div>
-          <div class="overview-card-icon"><i class="fa-solid fa-scroll"></i></div>
-          <h3>Publications</h3>
-          <p>2026 SSRN manuscripts on continued fractions, convergents, and best rational approximations.</p>
-        </div>
-        <span class="overview-card-link">Read Papers <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-
-      <a href="projects.html" class="overview-card">
-        <div>
-          <div class="overview-card-icon"><i class="fa-solid fa-code"></i></div>
-          <h3>ML &amp; Python Projects</h3>
-          <p>Cancer Predictor Streamlit deployment, heart disease classification, and regression workflows.</p>
-        </div>
-        <span class="overview-card-link">Inspect Projects <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-
-      <a href="courses.html" class="overview-card">
-        <div>
-          <div class="overview-card-icon"><i class="fa-solid fa-square-root-variable"></i></div>
-          <h3>Graduate Coursework</h3>
-          <p>Detailed MSc modules and grades across Probability, Real Analysis, Linear Algebra, and Python.</p>
-        </div>
-        <span class="overview-card-link">View Modules <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
+  <section id="about" class="content-block">
+    <h2>Research Profile</h2>
+    <p class="about-text">
+      I am an MSc Mathematical Sciences researcher (University of Cape Coast / African Institute for Mathematical Sciences – Ghana) and Tutorial Fellow at Jaramogi Oginga Odinga University of Science and Technology, with a rigorous foundation in real analysis, probability theory, linear algebra, mathematical proofs, statistics, and scientific computing with Python[cite: 2, 3].
+    </p>
+    <p class="about-text">
+      My research objective is to develop a rigorous mathematical understanding of learning algorithms—particularly their optimisation and training dynamics, high-dimensional behaviour, generalisation, uncertainty, and architectural mechanisms[cite: 2].
+    </p>
+    <div class="tag-list" style="margin-top: 1.25rem;">
+      <span class="tag">Mathematical Foundations of ML</span>
+      <span class="tag">Learning Dynamics &amp; Optimisation</span>
+      <span class="tag">Probability &amp; Stochastic Methods</span>
+      <span class="tag">Statistical Learning Theory</span>
+      <span class="tag">Dynamical Systems</span>
+      <span class="tag">Generative Modelling</span>
+      <span class="tag">Scientific Computing</span>
     </div>
   </section>
 
@@ -669,47 +181,6 @@
     </div>
     <p class="copyright">© 2026 Erick Omondi Aketch. All rights reserved.</p>
   </footer>
-
-  <!-- Interactive CV Auto-Cycle Script -->
-  <script>
-    const slides = document.querySelectorAll('.cv-slide');
-    const tabs = document.querySelectorAll('.cv-tab-btn');
-    const progress = document.getElementById('cvProgress');
-    let currentSlide = 0;
-    const duration = 5500; // 5.5 seconds per CV pillar
-    let timer;
-
-    function resetProgress() {
-      progress.style.animation = 'none';
-      progress.offsetHeight; // trigger reflow
-      progress.style.animation = `progressFill ${duration}ms linear forwards`;
-    }
-
-    function showSlide(index) {
-      slides.forEach((s, i) => {
-        s.classList.toggle('active', i === index);
-        tabs[i].classList.toggle('active', i === index);
-      });
-      currentSlide = index;
-      resetProgress();
-    }
-
-    function selectSlide(index) {
-      clearInterval(timer);
-      showSlide(index);
-      startAutoPlay();
-    }
-
-    function startAutoPlay() {
-      timer = setInterval(() => {
-        const next = (currentSlide + 1) % slides.length;
-        showSlide(next);
-      }, duration);
-    }
-
-    showSlide(0);
-    startAutoPlay();
-  </script>
 
 </body>
 </html>
