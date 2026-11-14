@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Erick Omondi Aketch</title>
+  <title>Research &amp; Projects | Erick Omondi Aketch</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -18,80 +18,121 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="publications.html">Publications</a></li>
         <li><a href="education.html">Education</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="page-container">
-    <div class="page-header">
-      <h1>Projects & Computational Work</h1>
-      <p>Selected research code, mathematical simulations, and data science implementations.</p>
-    </div>
+  <section class="cv-hero">
+    <svg class="cv-geo-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="260" cy="140" r="40" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="260" cy="140" r="65" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="260" cy="140" r="90" stroke="#d94628" stroke-width="1"/>
+      <circle cx="260" cy="140" r="115" stroke="#d94628" stroke-width="1"/>
+      <circle cx="260" cy="140" r="140" stroke="#e66c1f" stroke-width="1"/>
+      <circle cx="260" cy="140" r="165" stroke="#e66c1f" stroke-width="1"/>
+      <circle cx="260" cy="140" r="190" stroke="#e66c1f" stroke-width="1"/>
+    </svg>
+    <h1>Research &amp; <span class="gradient-accent">Projects</span></h1>
+    <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 1.08rem;">Mathematical research, machine learning workflows, and scientific computing in Python[cite: 2, 3].</p>
+  </section>
 
-    <div class="card-grid">
-      <article class="card">
-        <h3>Epidemiological Malaria Dynamics Simulator</h3>
-        <p>Numerical simulation and sensitivity analysis of deterministic ODE models evaluating intervention strategies and transmission thresholds in endemic rural settings.</p>
+  <!-- MATHEMATICAL RESEARCH -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Mathematical Research</h2>
+
+    <div class="cv-entry">
+      <div class="cv-meta">
+        <div class="cv-meta-date">2024 – 2026</div>
+        <div class="cv-meta-loc">University of Cape Coast / AIMS-Ghana</div>
+      </div>
+      <div class="cv-details">
+        <h3>Continued Fractions and Some Applications</h3>
+        <div class="cv-role">MSc Research Project · Grade: A</div>
+        <p>Independent mathematical investigation into continued fractions, convergents, best rational approximations, and related applications[cite: 2]. Developed rigorous proofs, engaged with technical literature, and defended results before an external examination panel[cite: 2].</p>
+        <a href="https://doi.org/10.2139/ssrn.7013641" target="_blank" class="text-link">SSRN Paper <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MACHINE LEARNING & COMPUTATIONAL PROJECTS -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Machine Learning &amp; Computational Projects</h2>
+
+    <div class="cv-entry">
+      <div class="cv-meta">
+        <div class="cv-meta-date">2026</div>
+        <div class="cv-meta-loc">Python · Streamlit · scikit-learn</div>
+      </div>
+      <div class="cv-details">
+        <h3>Cancer Predictor App – End-to-End Machine Learning Classification &amp; Deployment</h3>
+        <div class="cv-role">Supervised Binary Classification &amp; Deployment</div>
+        <p>Built an end-to-end supervised binary-classification workflow covering data inspection, preprocessing, feature preparation, model training, evaluation, model serialization, and interactive deployment via Streamlit[cite: 3]. Investigated practical issues including generalisation, distribution shift, false positives/negatives, uncertainty, and dataset limitations[cite: 3].</p>
         <div class="tag-list">
           <span class="tag">Python</span>
-          <span class="tag">SciPy</span>
-          <span class="tag">Dynamical Systems</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Matplotlib &amp; Seaborn</span>
         </div>
-        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">
-          <i class="fa-brands fa-github"></i> View Repository
-        </a>
-      </article>
-
-      <article class="card">
-        <h3>Wiener Index on Posets of Trees</h3>
-        <p>Algorithmic computation and structural analysis of distance-based topological indices across partially ordered sets of graph trees.</p>
-        <div class="tag-list">
-          <span class="tag">Graph Theory</span>
-          <span class="tag">Python</span>
-          <span class="tag">Combinatorics</span>
-        </div>
-        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">
-          <i class="fa-brands fa-github"></i> View Repository
-        </a>
-      </article>
-
-      <article class="card">
-        <h3>Quantitative Risk & Portfolio Simulation</h3>
-        <p>Implementation of Cholesky factorization, sample correlation matrices, and Monte Carlo simulations for multi-asset portfolio risk estimation.</p>
-        <div class="tag-list">
-          <span class="tag">Financial Engineering</span>
-          <span class="tag">R / Python</span>
-          <span class="tag">Stochastic Modeling</span>
-        </div>
-        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">
-          <i class="fa-brands fa-github"></i> View Repository
-        </a>
-      </article>
-
-      <article class="card">
-        <h3>Interactive STEM Simulation Architecture</h3>
-        <p>Modular web framework design for open-access mathematical and scientific learning simulations and item-response psychometric analysis.</p>
-        <div class="tag-list">
-          <span class="tag">EdTech</span>
-          <span class="tag">Statistical Inference</span>
-          <span class="tag">Web Architecture</span>
-        </div>
-        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">
-          <i class="fa-brands fa-github"></i> View Repository
-        </a>
-      </article>
+        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">GitHub Repository <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
     </div>
-  </main>
+
+    <div class="cv-entry">
+      <div class="cv-meta">
+        <div class="cv-meta-date">2025 – 2026</div>
+        <div class="cv-meta-loc">Python · scikit-learn · Pandas</div>
+      </div>
+      <div class="cv-details">
+        <h3>Predicting Heart Disease – Supervised Classification</h3>
+        <div class="cv-role">Biomedical Predictive Modelling</div>
+        <p>Applied data preparation, supervised predictive modelling, and classification-performance evaluation to biomedical clinical datasets[cite: 3].</p>
+        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">GitHub Repository <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-meta">
+        <div class="cv-meta-date">2025 – 2026</div>
+        <div class="cv-meta-loc">Python · Regression · Serialization</div>
+      </div>
+      <div class="cv-details">
+        <h3>Predicting Insurance Charges – Regression &amp; Model Serialization</h3>
+        <div class="cv-role">Statistical Regression Pipeline</div>
+        <p>Developed a linear-regression workflow encompassing exploratory data preparation, model training, predictive error evaluation, and model serialization[cite: 3].</p>
+        <a href="https://github.com/ErickAketch" target="_blank" class="text-link">GitHub Repository <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLIED EDUCATIONAL SYSTEMS -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Applied Educational Systems</h2>
+
+    <div class="cv-entry">
+      <div class="cv-meta">
+        <div class="cv-meta-date">2020 – Present</div>
+        <div class="cv-meta-loc">Kenya</div>
+      </div>
+      <div class="cv-details">
+        <h3>School Assessment &amp; Quantitative Data-Analysis System</h3>
+        <div class="cv-role">Departmental Automation &amp; Reporting</div>
+        <p>Designed and implemented an automated assessment and quantitative analysis system to streamline marks processing, grading, student ranking, and academic performance reporting[cite: 3].</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="social-links">
       <a href="https://github.com/ErickAketch" target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="mailto:your.email@example.com"><i class="fa-solid fa-envelope"></i></a>
+      <a href="mailto:aketcherick85@gmail.com"><i class="fa-solid fa-envelope"></i></a>
     </div>
     <p class="copyright">© 2026 Erick Omondi Aketch. All rights reserved.</p>
   </footer>
