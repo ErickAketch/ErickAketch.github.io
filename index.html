@@ -3,93 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Erick Omondi Aketch | Mathematical Sciences & Data Science</title>
+  <title>Erick Omondi Aketch | Mathematical Sciences & Machine Learning Theory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --primary: #c81e32;
-      --accent: #e66c1f;
-      --text-dark: #1f2937;
-      --text-muted: #4b5563;
-      --bg-light: #ffffff;
-      --border-light: #e5e7eb;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Header & Navigation */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 6%;
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .brand img {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--primary);
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.75rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    /* Hero Section */
     .hero {
       position: relative;
       padding: 4.5rem 6% 5rem;
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
     }
-
-    /* Concentric Geometric SVG Accent */
     .geo-bg {
       position: absolute;
       top: -20px;
@@ -100,7 +25,6 @@
       pointer-events: none;
       z-index: -1;
     }
-
     .badge {
       display: inline-block;
       padding: 0.45rem 1.1rem;
@@ -113,7 +37,6 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
-
     .hero h1 {
       font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       font-weight: 800;
@@ -121,24 +44,18 @@
       line-height: 1.15;
       margin-bottom: 0.75rem;
     }
-
     .gradient-name {
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .tagline {
       font-size: 1.25rem;
       color: var(--text-muted);
       margin-bottom: 2.25rem;
-      max-width: 650px;
+      max-width: 720px;
     }
-
-    .profile-wrapper {
-      margin-bottom: 2.25rem;
-    }
-
+    .profile-wrapper { margin-bottom: 2.25rem; }
     .profile-pic {
       width: 210px;
       height: 210px;
@@ -147,13 +64,7 @@
       border: 4px solid var(--primary);
       box-shadow: 0 12px 28px rgba(200, 30, 50, 0.15);
     }
-
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
+    .cta-group { display: flex; flex-wrap: wrap; gap: 1rem; }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -165,108 +76,43 @@
       text-decoration: none;
       transition: all 0.2s ease;
     }
-
     .btn-primary {
       background-color: var(--primary);
       color: #fff;
       box-shadow: 0 4px 14px rgba(200, 30, 50, 0.25);
     }
-
-    .btn-primary:hover {
-      background-color: #a81829;
-      transform: translateY(-2px);
-    }
-
+    .btn-primary:hover { background-color: #a81829; transform: translateY(-2px); }
     .btn-outline {
       background-color: #fff;
       color: var(--text-dark);
       border: 1.5px solid var(--border-light);
     }
-
-    .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* Content Sections */
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
     section.content-block {
       padding: 3.5rem 6%;
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       border-top: 1px solid #f3f4f6;
     }
-
-    section h2 {
-      font-size: 1.85rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      color: var(--text-dark);
-    }
-
+    section h2 { font-size: 1.85rem; font-weight: 700; margin-bottom: 1.25rem; }
     .about-text {
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       color: var(--text-muted);
-      max-width: 820px;
-      margin-bottom: 1.25rem;
-    }
-
-    .about-text a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .about-text a:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      padding: 3rem 6%;
-      text-align: center;
-      border-top: 1px solid var(--border-light);
-      margin-top: 2rem;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .social-links a {
-      color: var(--text-muted);
-      font-size: 1.35rem;
-      transition: color 0.2s;
-    }
-
-    .social-links a:hover {
-      color: var(--primary);
-    }
-
-    .copyright {
-      font-size: 0.88rem;
-      color: #6b7280;
-    }
-
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      .geo-bg { width: 340px; height: 340px; right: -100px; }
+      max-width: 860px;
+      margin-bottom: 1.15rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="#" class="brand">
+    <a href="index.html" class="brand">
       <img src="profile.jpg" alt="Erick Omondi Aketch">
       <span>Erick Aketch</span>
     </a>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -278,7 +124,6 @@
   </header>
 
   <main id="home" class="hero">
-    <!-- Decorative Concentric Lines -->
     <svg class="geo-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="250" cy="180" r="30" stroke="#c81e32" stroke-width="1"/>
       <circle cx="250" cy="180" r="55" stroke="#c81e32" stroke-width="1"/>
@@ -291,10 +136,10 @@
       <polygon points="130,70 340,70 340,280 130,280" stroke="#e66c1f" stroke-width="0.8" fill="none"/>
     </svg>
 
-    <div class="badge">MSc in Mathematical Sciences · Data Scientist & Researcher</div>
+    <div class="badge">MSc Mathematical Sciences (AIMS-Ghana) · Tutorial Fellow &amp; Researcher</div>
 
     <h1>Hi, I'm <span class="gradient-name">ERICK OMONDI AKETCH</span></h1>
-    <p class="tagline">Exploring mathematical probability, statistical inference, and machine learning.</p>
+    <p class="tagline">Mathematical Sciences · Machine Learning Theory · Scientific Computing with Python</p>
 
     <div class="profile-wrapper">
       <img src="profile.jpg" alt="Erick Omondi Aketch" class="profile-pic">
@@ -304,28 +149,35 @@
       <a href="projects.html" class="btn btn-primary">
         <i class="fa-solid fa-folder-open"></i> View My Work
       </a>
-      <a href="Erick_Aketch_Resume.pdf" class="btn btn-outline" download>
+      <a href="Erick_Aketch_Resume (1).pdf" class="btn btn-outline" download>
         <i class="fa-solid fa-file-pdf"></i> Download CV
       </a>
     </div>
   </main>
 
   <section id="about" class="content-block">
-    <h2>About Me</h2>
+    <h2>Research Profile</h2>
     <p class="about-text">
-      Erick Omondi Aketch is a mathematician and data scientist holding an MSc in Mathematical Sciences and a Certificate in Data Science. His work bridges theoretical mathematics—including graph theory and dynamical systems—with applied statistical inference and Python-based machine learning.
+      I am an MSc Mathematical Sciences researcher (University of Cape Coast / African Institute for Mathematical Sciences – Ghana) and Tutorial Fellow at Jaramogi Oginga Odinga University of Science and Technology, with a rigorous foundation in real analysis, probability theory, linear algebra, mathematical proofs, statistics, and scientific computing with Python[cite: 2, 3].
     </p>
     <p class="about-text">
-      His research spans epidemiological modeling of infectious disease transmission dynamics, quantitative financial engineering, and structural graph parameters such as the Wiener index on posets of trees.
+      My research objective is to develop a rigorous mathematical understanding of learning algorithms—particularly their optimisation and training dynamics, high-dimensional behaviour, generalisation, uncertainty, and architectural mechanisms[cite: 2].
     </p>
+    <div class="tag-list" style="margin-top: 1.25rem;">
+      <span class="tag">Mathematical Foundations of ML</span>
+      <span class="tag">Learning Dynamics &amp; Optimisation</span>
+      <span class="tag">Probability &amp; Stochastic Methods</span>
+      <span class="tag">Statistical Learning Theory</span>
+      <span class="tag">Dynamical Systems</span>
+      <span class="tag">Generative Modelling</span>
+      <span class="tag">Scientific Computing</span>
+    </div>
   </section>
 
   <footer>
     <div class="social-links">
       <a href="https://github.com/ErickAketch" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://scholar.google.com" target="_blank" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-      <a href="mailto:your.email@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="mailto:aketcherick85@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
     </div>
     <p class="copyright">© 2026 Erick Omondi Aketch. All rights reserved.</p>
   </footer>
