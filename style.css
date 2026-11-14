@@ -329,3 +329,52 @@ footer {
     gap: 0.4rem;
   }
 }
+
+
+/* Contact Page Bullet Lists & Obfuscated Email Styling */
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  position: relative;
+  padding-left: 1.15rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.98rem;
+}
+
+.contact-list li::before {
+  content: "◦";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.contact-list a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.contact-list a:hover {
+  color: #a81829;
+}
+
+.email-obfuscated {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.ref-name {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
