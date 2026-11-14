@@ -1,128 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Erick Omondi Aketch — Mathematics Educator, Researcher and Data Scientist.">
-  <meta name="theme-color" content="#07111f">
-  <meta name="author" content="Erick Omondi Aketch">
-  <meta property="og:title" content="Erick Omondi Aketch | Mathematics • Research • Technology">
-  <meta property="og:description" content="Academic portfolio of Erick Omondi Aketch — mathematics educator, researcher and data scientist.">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3EE%3C/text%3E%3C/svg%3E">
-  <title>Erick Omondi Aketch | Mathematics • Research • Technology</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erick Omondi Aketch | Mathematical Sciences & Data Science</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #c81e32;
+      --accent: #e66c1f;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --bg-light: #ffffff;
+      --border-light: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 6%;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 4.5rem 6% 5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Concentric Geometric SVG Accent */
+    .geo-bg {
+      position: absolute;
+      top: -20px;
+      right: -80px;
+      width: 580px;
+      height: 580px;
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: #fff;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .gradient-name {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 2.25rem;
+      max-width: 650px;
+    }
+
+    .profile-wrapper {
+      margin-bottom: 2.25rem;
+    }
+
+    .profile-pic {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      box-shadow: 0 12px 28px rgba(200, 30, 50, 0.15);
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(200, 30, 50, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: #a81829;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: #fff;
+      color: var(--text-dark);
+      border: 1.5px solid var(--border-light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Content Sections */
+    section.content-block {
+      padding: 3.5rem 6%;
+      max-width: 1280px;
+      margin: 0 auto;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    section h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+    }
+
+    .about-text {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 820px;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .about-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 6%;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .social-links a {
+      color: var(--text-muted);
+      font-size: 1.35rem;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .geo-bg { width: 340px; height: 340px; right: -100px; }
+    }
+  </style>
 </head>
 <body>
-  <canvas id="mathCanvas" aria-hidden="true"></canvas>
 
-  <header class="header">
-    <nav class="nav container">
-      <a class="logo" href="#home"><span>EOA</span><b>Erick Omondi Aketch</b></a>
-      <button class="menu" aria-label="Toggle menu">☰</button>
-      <div class="nav-links">
-        <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#research">Research</a>
-        <a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#blog">Blog</a>
-        <a href="#cv">CV</a><a href="#contact">Contact</a>
-      </div>
-      <button class="theme" id="themeToggle" aria-label="Toggle dark/light mode">☀︎</button>
+  <header>
+    <a href="#" class="brand">
+      <img src="profile.jpg" alt="Erick Omondi Aketch">
+      <span>Erick Aketch</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div class="portrait-wrap">
-          <div class="portrait-placeholder">
-            <img src="assets/profile.jpg" alt="Erick Omondi Aketch" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-            <span>EA</span>
-          </div>
-          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-        </div>
-        <div class="hero-copy">
-          <p class="badge">MATHEMATICS EDUCATOR · RESEARCHER · DATA SCIENTIST</p>
-          <h1>Where <em>mathematics</em> meets ideas, data and technology.</h1>
-          <p class="lead">I explore mathematical sciences, education, data science and emerging computational technologies—turning difficult questions into elegant, useful solutions.</p>
-          <div class="actions">
-            <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">↓ Download CV</a>
-            <a class="btn glass" href="#projects">View Projects</a>
-            <a class="btn glass" href="#contact">Contact Me</a>
-          </div>
-          <div class="socials">
-            <a href="https://github.com/ErickAketch" target="_blank" rel="noopener">GH</a>
-            <a href="https://www.linkedin.com/in/erick-aketch/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="#research" aria-label="Google Scholar">G</a>
-            <a href="#publications" aria-label="Research">RG</a>
-          </div>
-        </div>
-      </div>
-      <div class="container stats">
-        <div><strong>7+</strong><span>Years Teaching</span></div><div><strong>MSc</strong><span>Mathematical Sciences</span></div>
-        <div><strong>20+</strong><span>Projects & Initiatives</span></div><div><strong>3+</strong><span>ML Projects</span></div>
-        <div><strong>∞</strong><span>Passion for Mathematics</span></div>
-      </div>
-    </section>
+  <main id="home" class="hero">
+    <!-- Decorative Concentric Lines -->
+    <svg class="geo-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="250" cy="180" r="30" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="250" cy="180" r="55" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="250" cy="180" r="80" stroke="#d94628" stroke-width="1"/>
+      <circle cx="250" cy="180" r="105" stroke="#d94628" stroke-width="1"/>
+      <circle cx="250" cy="180" r="130" stroke="#e66c1f" stroke-width="1"/>
+      <circle cx="250" cy="180" r="155" stroke="#e66c1f" stroke-width="1"/>
+      <polygon points="90,30 380,30 380,320 90,320" stroke="#c81e32" stroke-width="0.8" fill="none"/>
+      <polygon points="110,50 360,50 360,300 110,300" stroke="#d94628" stroke-width="0.8" fill="none"/>
+      <polygon points="130,70 340,70 340,280 130,280" stroke="#e66c1f" stroke-width="0.8" fill="none"/>
+    </svg>
 
-    <section id="about" class="section">
-      <div class="container about-grid">
-        <div><p class="eyebrow">ABOUT ME</p><h2>Mathematics is not only what I teach. It is how I think.</h2>
-          <p>I am a Mathematics Educator and Researcher with a background in mathematical sciences and a growing focus on computation and data-driven problem solving.</p>
-          <p>I am particularly interested in pure mathematics, mathematical modelling, machine learning and computational approaches to education.</p>
-          <div class="facts"><span>📍 Kenya</span><span>🎓 MSc Mathematical Sciences</span><span>🧮 Mathematics & Business Studies</span><span>💻 Python · SQL · Web</span></div>
-        </div>
-        <div><p class="eyebrow">RESEARCH INTERESTS</p><div class="research-grid">
-          <article><b>∑</b><h3>Number Theory</h3><p>Continued fractions, Diophantine equations, primes and arithmetic structures.</p></article>
-          <article><b>◌</b><h3>Probability</h3><p>Probabilistic methods, stochastic processes and mathematical modelling.</p></article>
-          <article><b>◇</b><h3>Graph Theory</h3><p>Networks, structural graph theory and combinatorial algorithms.</p></article>
-          <article><b>α</b><h3>Algebra</h3><p>Abstract algebra, algebraic structures and their applications.</p></article>
-          <article><b>✦</b><h3>Combinatorics</h3><p>Enumerative and algebraic combinatorics and discrete structures.</p></article>
-          <article><b>AI</b><h3>Data & ML</h3><p>Statistical learning, machine learning and mathematical foundations of AI.</p></article>
-        </div></div>
-      </div>
-    </section>
+    <div class="badge">MSc in Mathematical Sciences · Data Scientist & Researcher</div>
 
-    <section id="projects" class="section dark">
-      <div class="container"><div class="section-head"><div><p class="eyebrow">SELECTED WORK</p><h2>Projects</h2></div><a href="https://github.com/ErickAketch" target="_blank" rel="noopener">View GitHub →</a></div>
-        <div class="project-grid">
-          <article class="project featured"><div class="project-image dashboard">DATA · ANALYSIS · INSIGHT</div><span>EDUCATION · PHP · MYSQL</span><h3>School Assessment System</h3><p>Digital assessment and reporting system for student marks, grades, rankings and subject analysis.</p><a href="https://github.com/ErickAketch" target="_blank" rel="noopener">Repository →</a></article>
-          <article class="project"><div class="project-image nodes">● · ● · ●<br>  ╲│╱<br>●—●—●</div><span>MACHINE LEARNING · PYTHON</span><h3>Machine Learning Portfolio</h3><p>Experiments in data analysis, classification, regression and predictive modelling.</p><a href="https://github.com/ErickAketch" target="_blank" rel="noopener">Explore GitHub →</a></article>
-          <article class="project"><div class="project-image quantum">|0⟩ ── H ── ⊕ ── M<br>|0⟩ ────── X ── M</div><span>QUANTUM COMPUTING</span><h3>Quantum Computing Experiments</h3><p>Explorations of quantum circuits, gates, measurement and quantum algorithms.</p><a href="https://github.com/ErickAketch" target="_blank" rel="noopener">Explore GitHub →</a></article>
-        </div>
-      </div>
-    </section>
+    <h1>Hi, I'm <span class="gradient-name">ERICK OMONDI AKETCH</span></h1>
+    <p class="tagline">Exploring mathematical probability, statistical inference, and machine learning.</p>
 
-    <section id="publications" class="section">
-      <div class="container split"><div><p class="eyebrow">RESEARCH OUTPUT</p><h2>Publications & writing</h2><p class="muted">A concise record of my mathematical research, thesis work and developing interests in computation, combinatorics and data-driven mathematics.</p></div>
-        <div class="pubs">
-          <article><span>2026 · THESIS</span><h3>Continued Fractions and Some Applications</h3><p>MSc Research Thesis</p><a href="#publications">PDF →</a></article>
-          <article><span>RESEARCH PROFILE</span><h3>From classical mathematics to modern computation</h3><p>Current interests span number theory, probability, graph theory, algebraic and enumerative combinatorics, and mathematical foundations of machine learning.</p><a href="#research">Research interests →</a></article>
-          <article><span>THESIS</span><h3>Continued Fractions and Some Applications</h3><p>MSc research exploring continued fractions and their mathematical applications.</p><a href="#publications">Research overview →</a></article>
-        </div>
-      </div>
-    </section>
+    <div class="profile-wrapper">
+      <img src="profile.jpg" alt="Erick Omondi Aketch" class="profile-pic">
+    </div>
 
-    <section id="blog" class="section alt">
-      <div class="container"><div class="section-head"><div><p class="eyebrow">THOUGHTS & NOTES</p><h2>Latest from the blog</h2></div><a href="#blog">All posts →</a></div>
-        <div class="blog-grid">
-          <article><div class="blog-art math">ζ(s) = Σ 1/nˢ</div><small>MATHEMATICS · 06 MIN READ</small><h3>The beauty of mathematical patterns</h3><p>Notes on patterns, conjectures and the ideas that make mathematics fascinating.</p><a href="blog/mathematical-patterns.html">Read article →</a></article>
-          <article><div class="blog-art education">f(x) → learning</div><small>EDUCATION · 05 MIN READ</small><h3>Teaching mathematics in the 21st century</h3><p>Thoughts on technology, pedagogy and making mathematics meaningful.</p><a href="blog/teaching-mathematics.html">Read article →</a></article>
-          <article><div class="blog-art python">&lt;/&gt; Python</div><small>DATA SCIENCE · 07 MIN READ</small><h3>Getting started with Python for data</h3><p>A practical introduction to the Python ecosystem for mathematical and data work.</p><a href="blog/python-data.html">Read article →</a></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="cv" class="section cv-section">
-      <div class="container cv-box"><div><p class="eyebrow">CURRICULUM VITAE</p><h2>Research, teaching and technical experience.</h2><p class="muted">Download my current academic CV for education, teaching experience, research interests, technical skills and selected projects.</p></div><a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">Download CV PDF ↓</a></div>
-    </section>
-
-    <section id="contact" class="section dark contact"><div class="container contact-grid"><div><p class="eyebrow">GET IN TOUCH</p><h2>Let's collaborate.</h2><p>Open to research discussions, teaching initiatives, mathematical projects and technology collaborations.</p></div>
-      <div class="contact-list"><a href="mailto:erickaketch@gmail.com">✉ erickaketch@gmail.com</a><a href="https://github.com/ErickAketch" target="_blank" rel="noopener">⌘ github.com/ErickAketch</a><a href="https://www.linkedin.com/in/erick-aketch/" target="_blank" rel="noopener">in LinkedIn profile</a></div>
-    </div></section>
+    <div class="cta-group">
+      <a href="projects.html" class="btn btn-primary">
+        <i class="fa-solid fa-folder-open"></i> View My Work
+      </a>
+      <a href="Erick_Aketch_CV.pdf" class="btn btn-outline" download>
+        <i class="fa-solid fa-file-pdf"></i> Download CV
+      </a>
+    </div>
   </main>
 
-  <footer><div class="container footer"><span>© <span id="year"></span> Erick Omondi Aketch</span><span>Built with mathematics, curiosity & code.</span></div></footer>
-  <script src="js/script.js"></script>
+  <section id="about" class="content-block">
+    <h2>About Me</h2>
+    <p class="about-text">
+      Erick Omondi Aketch is a mathematician and data scientist holding an MSc in Mathematical Sciences and a Certificate in Data Science. His work bridges theoretical mathematics—including graph theory and dynamical systems—with applied statistical inference and Python-based machine learning.
+    </p>
+    <p class="about-text">
+      His research spans epidemiological modeling of infectious disease transmission dynamics, quantitative financial engineering, and structural graph parameters such as the Wiener index on posets of trees.
+    </p>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://github.com/ErickAketch" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://scholar.google.com" target="_blank" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+      <a href="mailto:your.email@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <p class="copyright">© 2026 Erick Omondi Aketch. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
