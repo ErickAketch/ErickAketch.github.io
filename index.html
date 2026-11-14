@@ -9,99 +9,105 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero {
-      position: relative;
-      padding: 4.5rem 6% 5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .geo-bg {
-      position: absolute;
-      top: -20px;
-      right: -80px;
-      width: 580px;
-      height: 580px;
-      opacity: 0.22;
-      pointer-events: none;
-      z-index: -1;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.45rem 1.1rem;
-      border: 1px solid var(--border-light);
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      background: #fff;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-    .gradient-name {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .tagline {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      margin-bottom: 2.25rem;
-      max-width: 720px;
-    }
-    .profile-wrapper { margin-bottom: 2.25rem; }
-    .profile-pic {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary);
-      box-shadow: 0 12px 28px rgba(200, 30, 50, 0.15);
-    }
-    .cta-group { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.85rem 1.75rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .btn-primary {
-      background-color: var(--primary);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(200, 30, 50, 0.25);
-    }
-    .btn-primary:hover { background-color: #a81829; transform: translateY(-2px); }
-    .btn-outline {
-      background-color: #fff;
-      color: var(--text-dark);
-      border: 1.5px solid var(--border-light);
-    }
-    .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-    section.content-block {
-      padding: 3.5rem 6%;
-      max-width: 1200px;
-      margin: 0 auto;
-      border-top: 1px solid #f3f4f6;
-    }
-    section h2 { font-size: 1.85rem; font-weight: 700; margin-bottom: 1.25rem; }
-    .about-text {
-      font-size: 1.06rem;
-      color: var(--text-muted);
-      max-width: 860px;
-      margin-bottom: 1.15rem;
-    }
-  </style>
+  /* --- Keyframe Animations --- */
+  @keyframes spinSlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes spinReverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes pulseRing {
+    0%, 100% { transform: scale(1); opacity: 0.25; }
+    50% { transform: scale(1.04); opacity: 0.45; }
+  }
+
+  @keyframes avatarGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200, 30, 50, 0.35), 0 12px 28px rgba(200, 30, 50, 0.15); }
+    50% { box-shadow: 0 0 0 12px rgba(200, 30, 50, 0), 0 14px 32px rgba(230, 108, 31, 0.22); }
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- Hero Layout & Animated Elements --- */
+  .hero {
+    position: relative;
+    padding: 4.5rem 6% 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .geo-bg {
+    position: absolute;
+    top: -40px;
+    right: -90px;
+    width: 620px;
+    height: 620px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .ring-group-cw {
+    transform-origin: 250px 200px;
+    animation: spinSlow 65s linear infinite;
+  }
+
+  .ring-group-ccw {
+    transform-origin: 250px 200px;
+    animation: spinReverse 85s linear infinite;
+  }
+
+  .pulse-circles {
+    transform-origin: 250px 200px;
+    animation: pulseRing 6s ease-in-out infinite;
+  }
+
+  .animate-in {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.22s; }
+  .delay-3 { animation-delay: 0.34s; }
+  .delay-4 { animation-delay: 0.46s; }
+  .delay-5 { animation-delay: 0.58s; }
+
+  .gradient-name {
+    background: linear-gradient(270deg, #c81e32, #e66c1f, #b91c1c, #e66c1f);
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 7s ease infinite;
+  }
+
+  .profile-pic {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    animation: avatarGlow 3.8s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .profile-pic:hover {
+    transform: scale(1.03);
+  }
+</style>
 </head>
 <body>
 
@@ -123,37 +129,62 @@
     </nav>
   </header>
 
-  <main id="home" class="hero">
-    <svg class="geo-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="250" cy="180" r="30" stroke="#c81e32" stroke-width="1"/>
-      <circle cx="250" cy="180" r="55" stroke="#c81e32" stroke-width="1"/>
-      <circle cx="250" cy="180" r="80" stroke="#d94628" stroke-width="1"/>
-      <circle cx="250" cy="180" r="105" stroke="#d94628" stroke-width="1"/>
-      <circle cx="250" cy="180" r="130" stroke="#e66c1f" stroke-width="1"/>
-      <circle cx="250" cy="180" r="155" stroke="#e66c1f" stroke-width="1"/>
-      <polygon points="90,30 380,30 380,320 90,320" stroke="#c81e32" stroke-width="0.8" fill="none"/>
-      <polygon points="110,50 360,50 360,300 110,300" stroke="#d94628" stroke-width="0.8" fill="none"/>
-      <polygon points="130,70 340,70 340,280 130,280" stroke="#e66c1f" stroke-width="0.8" fill="none"/>
-    </svg>
+  
+    <main id="home" class="hero">
+  <!-- Animated Concentric Geometric SVG -->
+  <svg class="geo-bg" viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Pulsing Concentric Circles -->
+    <g class="pulse-circles">
+      <circle cx="250" cy="200" r="24" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="250" cy="200" r="42" stroke="#c81e32" stroke-width="1"/>
+      <circle cx="250" cy="200" r="60" stroke="#d94628" stroke-width="1"/>
+      <circle cx="250" cy="200" r="78" stroke="#d94628" stroke-width="1"/>
+      <circle cx="250" cy="200" r="96" stroke="#e66c1f" stroke-width="1"/>
+      <circle cx="250" cy="200" r="114" stroke="#e66c1f" stroke-width="1"/>
+      <circle cx="250" cy="200" r="132" stroke="#e66c1f" stroke-width="0.9"/>
+      <circle cx="250" cy="200" r="150" stroke="#d94628" stroke-width="0.8"/>
+    </g>
 
-    <div class="badge">MSc Mathematical Sciences (AIMS-Ghana) · Tutorial Fellow &amp; Researcher</div>
+    <!-- Slowly Rotating Outer Diamonds / Polygons -->
+    <g class="ring-group-cw" opacity="0.28">
+      <polygon points="250,15 435,200 250,385 65,200" stroke="#c81e32" stroke-width="0.9" fill="none"/>
+      <polygon points="250,35 415,200 250,365 85,200" stroke="#d94628" stroke-width="0.9" fill="none"/>
+      <polygon points="250,55 395,200 250,345 105,200" stroke="#e66c1f" stroke-width="0.9" fill="none"/>
+    </g>
 
-    <h1>Hi, I'm <span class="gradient-name">ERICK OMONDI AKETCH</span></h1>
-    <p class="tagline">Mathematical Sciences · Machine Learning Theory · Scientific Computing with Python</p>
+    <!-- Counter-Rotating Fine Geometry -->
+    <g class="ring-group-ccw" opacity="0.22">
+      <polygon points="250,5 445,200 250,395 55,200" stroke="#e66c1f" stroke-width="0.8" stroke-dasharray="6 4" fill="none"/>
+      <circle cx="250" cy="200" r="172" stroke="#c81e32" stroke-width="0.8" stroke-dasharray="4 6"/>
+      <circle cx="250" cy="200" r="192" stroke="#e66c1f" stroke-width="0.8"/>
+    </g>
+  </svg>
 
-    <div class="profile-wrapper">
-      <img src="profile.jpg" alt="Erick Omondi Aketch" class="profile-pic">
-    </div>
+  <div class="badge animate-in delay-1">
+    MSc Mathematical Sciences (AIMS-Ghana) · Tutorial Fellow &amp; Researcher
+  </div>
 
-    <div class="cta-group">
-      <a href="projects.html" class="btn btn-primary">
-        <i class="fa-solid fa-folder-open"></i> View My Work
-      </a>
-      <a href="Erick_Aketch_Resume (1).pdf" class="btn btn-outline" download>
-        <i class="fa-solid fa-file-pdf"></i> Download CV
-      </a>
-    </div>
-  </main>
+  <h1 class="animate-in delay-2">
+    Hi, I'm <span class="gradient-name">ERICK OMONDI AKETCH</span>
+  </h1>
+
+  <p class="tagline animate-in delay-3">
+    Mathematical Sciences · Machine Learning Theory · Scientific Computing with Python
+  </p>
+
+  <div class="profile-wrapper animate-in delay-4">
+    <img src="profile.jpg" alt="Erick Omondi Aketch" class="profile-pic">
+  </div>
+
+  <div class="cta-group animate-in delay-5">
+    <a href="projects.html" class="btn btn-primary">
+      <i class="fa-solid fa-folder-open"></i> View My Work
+    </a>
+    <a href="Erick_Aketch_Resume.pdf" class="btn btn-outline" download>
+      <i class="fa-solid fa-file-pdf"></i> Download CV
+    </a>
+  </div>
+</main>
 
   <section id="about" class="content-block">
     <h2>Research Profile</h2>
